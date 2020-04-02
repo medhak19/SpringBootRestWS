@@ -21,7 +21,7 @@ pipeline {
             steps{
               echo "%{env.WORKSPACE}%"  
               echo "${env.WORKSPACE}"
-              bat "start cmd.exe /c ${env.WORKSPACE}/runJarScript.bat"
+              bat 'java -jar ./build/libs/Artifact1-1.0-SNAPSHOT.jar'
             }
         }
       }
