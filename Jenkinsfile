@@ -19,7 +19,7 @@ pipeline {
 
         stage('RUNJAR'){
             steps{
-              bat 'start cmd.exe /c ./runJarScript.bat'
+              bat 'start cmd.exe /c runJarScript.bat'
             }
         }
       }
