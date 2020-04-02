@@ -21,7 +21,7 @@ pipeline {
             steps{
               echo "%{env.WORKSPACE}%"  
               echo "${env.WORKSPACE}"
-              bat 'start cmd.exe /c "${env.WORKSPACE}"/runJarScript.bat'
+              bat "start cmd.exe /c ${env.WORKSPACE}/runJarScript.bat"
             }
         }
       }
