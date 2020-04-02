@@ -19,6 +19,8 @@ pipeline {
 
         stage('RUNJAR'){
             steps{
+              echo "%{env.WORKSPACE}%"  
+              echo "${env.WORKSPACE}"
               bat 'start cmd.exe /c runJarScript.bat'
             }
         }
