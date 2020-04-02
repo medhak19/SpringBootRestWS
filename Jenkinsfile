@@ -7,19 +7,19 @@ pipeline {
         // Clean
         stage('CLEAN'){
             steps{
-              ./gradlew clean
+              bat './gradlew clean'
             }
         }
 
         stage('BOOTJAR'){
             steps{
-              ./gradlew bootJar
+              bat './gradlew bootJar'
             }
         }
 
         stage('RUNJAR'){
             steps{
-              start java -jar build/libs/Artifact1-1.0-SNAPSHOT.jar
+              bat 'start cmd.exe /c ./runJarScript.bat'
             }
         }
       }
