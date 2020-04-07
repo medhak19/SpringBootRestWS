@@ -17,6 +17,16 @@ pipeline {
             }
         }
 
+        stage('SONARQUBE ANALYSIS'){
+            steps{
+              bat './gradlew sonarqube'
+
+            }
+
+        }
+        }
+        /*
+
         stage('RUNJAR'){
             steps{
               echo "%{env.WORKSPACE}%"  
@@ -26,7 +36,7 @@ pipeline {
                //bat 'runJarScript.bat' 
                 bat "start cmd.exe /c ${env.WORKSPACE}/build/libs/Artifact1-1.0-SNAPSHOT.jar"
             }
-        }
+        }*/
       }
       
  }
