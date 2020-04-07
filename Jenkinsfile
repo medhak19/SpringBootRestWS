@@ -25,6 +25,16 @@ pipeline {
 
         }
 
+         // check quality gate status on SonarQube dashboard
+        stage("Quality Gate Status Check") {
+           steps {
+               timeout(time: 10, unit: 'MINUTES') {
+                   waitForQualityGate abortPipeline: true
+               }
+           }
+        }
+
+
         /*
 
         stage('RUNJAR'){
