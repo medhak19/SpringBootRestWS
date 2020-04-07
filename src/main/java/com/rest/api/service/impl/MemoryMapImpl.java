@@ -12,25 +12,34 @@ public class MemoryMapImpl implements MemoryMap {
     private HashMap<String, User> userHashMap = new HashMap<>();
 
     public void createUser(User user){
-        userHashMap.put(user.getFirst_name(), user);
+        userHashMap.put(user.getFirstName(), user);
     }
     public User retrieveUser(String userId){
         return userHashMap.get(userId);
     }
 
-    public List<User> getUserList(){
+    //public List<User> getUserList(){
+    public User[] getUserList(){
+        //List<User> userList = new ArrayList();
 
-        List<User> userList = new ArrayList();
         Set keys = userHashMap.keySet();
         Iterator itr = keys.iterator();
-
+        User[] users = new User[keys.size()];
+        int i =0;
         if(itr != null) {
             while (itr.hasNext()) {
-                userList.add(userHashMap.get(itr.next()));
+                //userList.add(userHashMap.get(itr.next()));
+                users[i]=userHashMap.get(itr.next());
+                i++;
             }
         }
+        //return userList;
+        return users;
 
-
-        return userList;
     }
+
+    public int getUsersCount(){
+        return userHashMap.size();
+    }
+
 }

@@ -20,7 +20,7 @@ public class UserMgmt {
     public ResponseEntity<String> createUser(@RequestBody User user){
 
         memoryMap.createUser(user);
-        return ResponseEntity.accepted().body("User created. First name: " + user.getFirst_name() + " :: Last name: " + user.getLast_name());
+        return ResponseEntity.accepted().body("User created. First name: " + user.getFirstName() + " :: Last name: " + user.getLastName());
     }
 
 
@@ -34,9 +34,9 @@ public class UserMgmt {
     }
 
     @GetMapping(value = "/v1/userList", produces = {"application/json"})
-    public ResponseEntity<List<User>> getUser(){
-        List<User> users = memoryMap.getUserList();
-
+    public ResponseEntity<User[]> getUser(){
+        //List<User> users = memoryMap.getUserList();
+        User[] users = memoryMap.getUserList();
         return ResponseEntity.ok()
                 .body(users);
 

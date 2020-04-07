@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'org.springframework.boot' version '2.1.8.RELEASE'
+    id 'org.sonarqube' version '2.7.1'
 }
 
 apply plugin: 'io.spring.dependency-management'
@@ -22,4 +23,17 @@ dependencies {
 
     testImplementation('org.springframework.boot:spring-boot-starter-test')
     testImplementation 'org.mockito:mockito-inline'
+}
+
+sonarqube {
+    properties {
+        property "sonar.host.url", "http://10.81.16.148:9000"
+        property "sonar.projectName", "msk_rest"
+        property "sonar.projectKey", "msk_rest"
+        property "sonar.projectVersion", "1.0"
+        property "sonar.sources", "src/main"
+        property "sonar.sourceEncoding", "UTF-8"
+        property "sonar.java.binaries", "build/classes/java"
+        property "sonar.tests", "src/test"
+    }
 }
