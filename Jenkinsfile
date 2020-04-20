@@ -16,7 +16,7 @@ pipeline {
               bat './gradlew bootJar'
             }
         }
-
+       /*
         stage('SONARQUBE ANALYSIS'){
             steps{
               bat './gradlew sonarqube'
@@ -35,7 +35,7 @@ pipeline {
         }
 
 
-        /*
+ 
 
         stage('RUNJAR'){
             steps{
